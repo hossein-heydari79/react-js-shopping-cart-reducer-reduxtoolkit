@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './Card.css'
 import { addCardList, increaseConut } from '../../Redux/cardlistReducer.js'
+import { addDataModal } from '../../Redux/dataModalReducer.js'
 
 export const Card = ({ id, url, description, price, show, hide }) => {
 
@@ -25,15 +26,13 @@ export const Card = ({ id, url, description, price, show, hide }) => {
 
     function showm() {
         let index = cardlist.findIndex((i) => i.id === id);
-        dispatch({
-            type: "ADD_DATA_MODAL", payload: {
-                url: url,
-                id: id,
-                title: description,
-                des: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
-                price: price,
-            }
-        })
+        dispatch(addDataModal({
+            url: url,
+            id: id,
+            title: description,
+            des: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+            price: price,
+        }))
         show();
     }
 

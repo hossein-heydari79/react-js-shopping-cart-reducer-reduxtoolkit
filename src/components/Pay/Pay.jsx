@@ -9,10 +9,6 @@ export const Pay = () => {
     const dispatch = useDispatch()
 
     function change() {
-        // setmode({
-        //     show: true
-        // })
-
         dispatch({
             type: "TRUE", payload: {
                 show: true
