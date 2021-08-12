@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './Navbar.css'
-import { Add } from '../../Redux/filterReducer.js'
+import { AddPrice, AddSize } from '../../Redux/filterReducer.js'
 
 export const Navbar = ({ len }) => {
 
@@ -9,7 +9,13 @@ export const Navbar = ({ len }) => {
     const dispatch = useDispatch()
 
     function change(e) {
-        dispatch(Add({ ...filter, [e.target.name]: e.target.value }))
+
+        if (e.target.name === "price") {
+            dispatch(AddPrice(e.target.value))
+        }
+        else {
+            dispatch(AddSize(e.target.value))
+        }
     }
 
 
