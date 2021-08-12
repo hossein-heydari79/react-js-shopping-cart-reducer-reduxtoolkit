@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './Cardlist.css'
+import { decreaseCount } from '../../Redux/cardlistReducer.js'
 
 export const Cardlist = ({ id, url, description, price, count }) => {
 
@@ -14,10 +15,9 @@ export const Cardlist = ({ id, url, description, price, count }) => {
             arr.splice(index, 1);
         }
         else {
-            arr[index].count--;
+            dispatch(decreaseCount(index))
         }
 
-        dispatch({ type: "ADD_CARD_LIST", payload: arr })
     }
 
 

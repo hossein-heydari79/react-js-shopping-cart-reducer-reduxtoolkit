@@ -10,10 +10,13 @@ const CardListReducer = createSlice({
         ,
         increaseConut: (state, action) => {
             state[action.payload].count++
+        },
+        decreaseCount: (state, action) => {
+            state[action.payload].count--
         }
     }
 })
 
-export const { addCardList, increaseConut } = CardListReducer.actions
+export const { addCardList, increaseConut, decreaseCount } = CardListReducer.actions
 
 export default CardListReducer.reducer
