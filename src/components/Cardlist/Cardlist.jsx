@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './Cardlist.css'
-import { decreaseCount } from '../../Redux/cardlistReducer.js'
+import { decreaseCount, spliceCardList } from '../../Redux/cardlistReducer.js'
 
 export const Cardlist = ({ id, url, description, price, count }) => {
 
@@ -12,7 +12,7 @@ export const Cardlist = ({ id, url, description, price, count }) => {
         let index = cardlist.findIndex((item, index) => item.id === id);
         let arr = [...cardlist];
         if (arr[index].count === 1) {
-            arr.splice(index, 1);
+            dispatch(spliceCardList(index))
         }
         else {
             dispatch(decreaseCount(index))
