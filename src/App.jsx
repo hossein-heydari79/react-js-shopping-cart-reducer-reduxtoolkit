@@ -11,6 +11,7 @@ import { Modals } from './components/Modals/Modals'
 import data from './data/data.js'
 import { useState, useEffect, useReducer } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { ToggleShow } from './Redux/showReducer.js'
 
 
 
@@ -30,19 +31,12 @@ function App() {
 
   let showModal = () => {
 
-    dispatch({
-      type: "TRUE_SHOW", payload: {
-        show: true
-      }
-    })
+    dispatch(ToggleShow(true))
+
   }
 
   let hideModal = () => {
-    dispatch({
-      type: "FALSE_SHOW", payload: {
-        show: false
-      }
-    })
+    dispatch(ToggleShow(false))
   }
 
   useEffect(() => {
