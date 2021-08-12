@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './Pay.css'
+import { True } from '../../Redux/modeReducer.js'
 
 export const Pay = () => {
 
@@ -9,12 +10,7 @@ export const Pay = () => {
     const dispatch = useDispatch()
 
     function change() {
-        dispatch({
-            type: "TRUE", payload: {
-                show: true
-            }
-        })
-
+        dispatch(True(true))
     }
     let total = 0;
     cardlist.forEach(element => {
