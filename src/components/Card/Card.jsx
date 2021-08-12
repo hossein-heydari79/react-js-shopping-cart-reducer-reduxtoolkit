@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './Card.css'
+import { addCardList, increaseConut } from '../../Redux/cardlistReducer.js'
 
 export const Card = ({ id, url, description, price, show, hide }) => {
 
@@ -14,11 +15,10 @@ export const Card = ({ id, url, description, price, show, hide }) => {
         if (item) {
             let arr = [...cardlist];
             let index = arr.findIndex((i) => i.id === id);
-            arr[index].count++;
-            dispatch({ type: "ADD_CARD_LIST", payload: arr })
+            dispatch(increaseConut(index))
         }
         else {
-            dispatch({ type: "ADD_CARD_LIST", payload: [...cardlist, { id: id, url: url, description: description, price: price, count: 1 }] })
+            dispatch(addCardList({ id: id, url: url, description: description, price: price, count: 1 }))
         }
     }
 

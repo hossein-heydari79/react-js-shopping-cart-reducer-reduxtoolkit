@@ -1,12 +1,19 @@
-export function cardlistReducer(cardlist = [], action) {
-    switch (action.type) {
-        case "ADD_CARD_LIST": {
-            return (
-                action.payload
-            )
-        }
+import { createSlice } from '@reduxjs/toolkit'
 
-        default:
-            return cardlist
+const CardListReducer = createSlice({
+    name: "cardlist",
+    initialState: [],
+    reducers: {
+        addCardList: (state, action) => {
+            state.push(action.payload)
+        }
+        ,
+        increaseConut: (state, action) => {
+            state[action.payload].count++
+        }
     }
-}
+})
+
+export const { addCardList, increaseConut } = CardListReducer.actions
+
+export default CardListReducer.reducer
