@@ -1,18 +1,18 @@
+import { createSlice } from '@reduxjs/toolkit'
+
 const initial = {
     show: false
 }
 
-export function showReducer(show = initial, action) {
-    switch (action.type) {
-        case "TRUE_SHOW": {
-            return (
-                action.payload
-            )
+const ShowReducer = createSlice({
+    name: "show",
+    initialState: initial,
+    reducers: {
+        ToggleShow: (state, action) => {
+            state.show = action.payload
         }
-        case "FALSE_SHOW":
-            return action.payload
-
-        default:
-            return show
     }
-}
+})
+
+export const { ToggleShow } = ShowReducer.actions
+export default ShowReducer.reducer
