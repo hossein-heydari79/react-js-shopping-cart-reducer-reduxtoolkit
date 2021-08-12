@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import './Modals.css'
+import { increaseConut, addCardList } from '../../Redux/cardlistReducer.js'
 
 export const Modals = ({ show, hide }) => {
 
@@ -16,14 +17,11 @@ export const Modals = ({ show, hide }) => {
         if (item) {
             let arr = [...cardlist];
             let index = arr.findIndex((i) => i.id === dataModal.id);
-            arr[index].count++;
-            // setCardlist(arr);
-            dispatch({ type: "ADD_CARD_LIST", payload: arr })
+            dispatch(increaseConut(index))
             hide();
         }
         else {
-            // setCardlist([...cardlist, { id: datamodal.id, url: datamodal.url, description: datamodal.title, price: datamodal.price, count: 1 }])
-            dispatch({ type: "ADD_CARD_LIST", payload: [...cardlist, { id: dataModal.id, url: dataModal.url, description: dataModal.title, price: dataModal.price, count: 1 }] })
+            dispatch(addCardList({ id: dataModal.id, url: dataModal.url, description: dataModal.title, price: dataModal.price, count: 1 }))
             hide();
         }
 
