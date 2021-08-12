@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './Navbar.css'
+import { Add } from '../../Redux/filterReducer.js'
 
 export const Navbar = ({ len }) => {
 
@@ -8,8 +9,7 @@ export const Navbar = ({ len }) => {
     const dispatch = useDispatch()
 
     function change(e) {
-        // setfilter({ ...filter, [e.target.name]: e.target.value })
-        dispatch({ type: "ADD", payload: { ...filter, [e.target.name]: e.target.value } })
+        dispatch(Add({ ...filter, [e.target.name]: e.target.value }))
     }
 
 

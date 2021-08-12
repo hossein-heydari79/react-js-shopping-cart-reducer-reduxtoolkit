@@ -6,7 +6,7 @@ import { increaseConut, addCardList } from '../../Redux/cardlistReducer.js'
 export const Modals = ({ show, hide }) => {
 
 
-    const dataModal = useSelector(state => state.dataModal)
+    const dataModal = useSelector(state => state.datamodal)
     const cardlist = useSelector(state => state.cardlist)
     const dispatch = useDispatch()
 
